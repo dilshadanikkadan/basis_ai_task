@@ -20,7 +20,7 @@ const PatientInfo = (props: Props) => {
 
 
   return (
-    <section className="flex w-[90%] mx-auto mt-5">
+    <section className="flex w-[90%] mx-auto mt-5 flex-col md:flex-row">
       <div className="left flex-[1]">
         <div className="wrapper w-full h-[30rem] bg-white rounded-lg p-5">
           <img
@@ -40,7 +40,7 @@ const PatientInfo = (props: Props) => {
               <span className="font-semibold ">Phone</span> : {data?.name}
             </p>
             <p className="text-text">
-              <span className="font-semibold ">Status</span> : {data?.name}
+              <span className="font-semibold ">gender</span> : {data?.gender}
             </p>
             <p className="text-text">
               <span className="font-semibold ">Status</span> : {data?.name}
@@ -51,7 +51,7 @@ const PatientInfo = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="right flex-[3] flex flex-col relative">
+      <div className="right flex-[3] flex flex-col relative mt-5 md:mt-0">
         <div className="wrapper w-full flex  flex-col gap-5 overflow-y-scroll max-h-[25rem]">
           <History  medicalHistory={data?.medicalHistory}/>
           <Treatments />

@@ -13,7 +13,7 @@ const SearchInput = ({ setName }: Props) => {
         type="text"
         onChange={(e) => setName(e.target.value)}
         placeholder="Search Here Names"
-        className="bg-inherit"
+        className="bg-inherit focus:outline-none"
       />
     </div>
   );

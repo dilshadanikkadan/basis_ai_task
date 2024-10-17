@@ -6,6 +6,7 @@ import InfoProvider from "../components/pages/DashBoard/InfoProvider";
 import Table from "../components/viewComponents/table/Table";
 import useRequest from "../hooks/useRequest";
 import AuthProtector from "../lib/protectedCompoenents/AuthProtector";
+import LoaderIcon from "../components/loader/Loader";
 
 type Props = {};
 // interface TableItem {
@@ -24,32 +25,58 @@ type Props = {};
 // ];
 
 const DashBoard = (props: Props) => {
+  const [isOpenSideBar, setisOpenSideBar] = useState<Boolean>(true);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [limit, setLimit] = useState<number>(2);
-  const [name,setName] = useState("")
-  
+  const [name, setName] = useState("");
+  const [deboundedName, setDebouncedName] = useState<string>(name);
+
   const { data, loading, fetchData, error } = useRequest(
     `/patients?pageNo=${pageNumber}&limit=${limit}&name=${name}`
   );
 
+  /*
+making a debounce function to optimize the limit of serching 
+*/
+
+  useEffect(() => {
+    const handlerDebouncer = setTimeout(() => {
+      setDebouncedName(name);
+    }, 500);
+    return () => {
+      clearTimeout(handlerDebouncer);
+    };
+  }, [deboundedName]);
+
   useEffect(() => {
     fetchData();
-  }, [pageNumber,limit,name]);
-
-
+  }, [pageNumber, limit, name]);
 
   return (
-    <>
-      <Navbar />
-      <main className="section w-full mt-6 flex">
-        <SideBar />
+    <div className="w-screen overflow-x-hidden">
+      <Navbar
+        isOpenSideBar={isOpenSideBar}
+        setisOpenSideBar={setisOpenSideBar}
+      />
+      <main className="section w-full mt-6 flex  overflow-hidden">
+        {isOpenSideBar && <SideBar isOpenSideBar={isOpenSideBar} />}
         <section className="w-full ">
-          <Breadcrumbs />
+          <Breadcrumbs list={["Dashboard", "Admin"]} />
           <InfoProvider setName={setName} />
-          <Table data={data} setPageNumber={setPageNumber} clasName="w-[90%]" />
+          {loading ? (
+            <div className="w-[90%] mx-auto flex items-center justify-center h-[50%]">
+              <LoaderIcon />
+            </div>
+          ) : (
+            <Table
+              data={data}
+              setPageNumber={setPageNumber}
+              clasName="w-full md:w-[90%] mx-4 md:mx-auto"
+            />
+          )}
         </section>
       </main>
-    </>
+    </div>
   );
 };
 

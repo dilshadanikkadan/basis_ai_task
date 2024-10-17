@@ -20,7 +20,7 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
     console.log({ treatmentType, insurancePlan, dateOfService, diagnosisCode });
 
     if (treatmentType.trim().length < 3 || insurancePlan.trim().length < 3) {
-      setError("invalid inputs");
+      setError("Please Check the format of inputs");
       return;
     }
     if (diagnosisCode.trim().length < 5) {
@@ -67,9 +67,10 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
             <input
               type="text"
               id="treatmentType"
+              placeholder="eg: Phycical Therappy"
               value={treatmentType}
               onChange={(e) => setTreatmentType(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full   px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -82,6 +83,7 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
             </label>
             <input
               type="text"
+              placeholder="eg: gold plan"
               id="insurancePlan"
               value={insurancePlan}
               onChange={(e) => setInsurancePlan(e.target.value)}
@@ -100,6 +102,7 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
               <input
                 type="text"
                 id="dateOfService"
+                placeholder="eg: 22-10-2024"
                 value={dateOfService}
                 onChange={(e) => setDateOfService(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -122,6 +125,7 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
               <input
                 type="text"
                 id="diagnosisCode"
+                placeholder="eg: 7856570"
                 value={diagnosisCode}
                 onChange={(e) => setDiagnosisCode(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

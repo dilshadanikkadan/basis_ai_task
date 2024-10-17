@@ -8,7 +8,7 @@ const Login = (props: Props) => {
   return (
     <main className="flex w-screen h-screen">
       <div
-        className="left loginContainer bg-cover bg-center bg-no-repeat flex-1 items-center "
+        className="left hidden md:block loginContainer bg-cover bg-center bg-no-repeat flex-1 items-center "
         style={{ backgroundImage: `url(${user})` }}
       >
         <div
@@ -16,7 +16,7 @@ const Login = (props: Props) => {
           style={{ backgroundImage: `url(${loginMain})` }}
         ></div>
       </div>
-      <div className="right flex-[1] flex items-center justify-center">
+      <div className="right m-10 md:m-3 flex-[1] flex items-center justify-center">
           <LoginForm/>
       </div>
     </main>

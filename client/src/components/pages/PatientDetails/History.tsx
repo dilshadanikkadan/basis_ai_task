@@ -17,7 +17,7 @@ const data: TableItem[] = [
 
 const History = ({ medicalHistory }: Props) => {
   return (
-    <section className="w-[90%] mx-auto h-[50vh] bg-white rounded-lg p-5">
+    <section className="w-[100%] md:w-[90%] mx-auto h-[50vh] bg-white rounded-lg p-5">
       <h3 className="text-lg   font-semibold text-main ">Medical History</h3>
       <div className="list">
         <Table data={medicalHistory && medicalHistory} clasName="w-[100%]" />

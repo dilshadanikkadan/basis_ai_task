@@ -21,7 +21,7 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ data,setPageNumber, clasName }) => {
   const isDataAvailable = data && data.length > 0 && data[0].medicalHistory;
   return (
-    <div className={`overflow-x-auto ${clasName}  mx-auto`}>
+    <div className={`overflow-x-auto ${clasName}  mx-auto w-full mt-5 md:mt-0 `}>
       <table className="min-w-full bg-white">
         <thead className="bg-secondary">
           <tr>

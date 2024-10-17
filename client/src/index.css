@@ -11,6 +11,7 @@
 
 body{
     background-color: #F5F5F6;
+    overflow-x:hidden ;
 }
 
 .loginContainer{
