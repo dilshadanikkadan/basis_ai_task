@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Questrial', sans-serif;
+  font-weight: 400;
+}
+
+body{
+    background-color: #F5F5F6;
+}
+
+.loginContainer{
+    
+}
