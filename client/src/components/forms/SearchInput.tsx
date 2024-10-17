@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Search } from "lucide-react";
 
 type Props = {
@@ -19,4 +19,4 @@ const SearchInput = ({ setName }: Props) => {
   );
 };
 
-export default SearchInput;
+export default memo(SearchInput);

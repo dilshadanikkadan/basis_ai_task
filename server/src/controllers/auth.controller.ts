@@ -5,12 +5,16 @@ import { BadRequestError } from "../exceptions/bad-request-error";
 import { Password } from "../services/password/password.service";
 import { verifyToken } from "../services/generateToken/verifyToken";
 
+ /*
+    authCreateController
+  */
 export const authCreateController = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
+
     //after validating the req.body passing to repo layer
     const response = await repository.buildUser(req.body);
 
@@ -58,8 +62,11 @@ export const authLoginController = async (
   }
 };
 
-// currentUserController
 
+
+ /*
+    currentUserController
+  */
 export const currentUserController = async (
   req: Request,
   res: Response,
@@ -80,7 +87,10 @@ export const currentUserController = async (
     next(error);
   }
 };
-// /logoutController
+
+ /*
+    logoutController
+  */
 
 export const logoutController = async (
     req: Request,

@@ -1,6 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+ /*
+    env conversion
+  */
 export const envString = (variable: string, defaultValue?: string): string => {
   const value = process.env[variable] || defaultValue;
 

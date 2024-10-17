@@ -6,10 +6,15 @@ import {
 } from "../controllers/patients.controller";
 import { patientValidtion } from "../utils/validation/patient.validation";
 import { validateRequest } from "../middlewares/validate-request";
+
 const router = express.Router();
 
-// =================================
-//get all patients
+ /*
+    this router for auth managing the patient system
+    sanitizing the inputs with express-validator
+    and managing with middlewares
+  */
+
 router.get("/", getAllPatientsController);
 router.get("/:id", getSinglePatientsController);
 router.post("/", patientValidtion, validateRequest, createPatientsController);

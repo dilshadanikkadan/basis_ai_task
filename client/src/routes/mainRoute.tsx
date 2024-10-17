@@ -4,6 +4,12 @@ import PatientDetails from "../pages/PatientDetails";
 import Login from "../pages/Login";
 import AuthProtector from "../lib/protectedCompoenents/AuthProtector";
 import LoginProtect from "../lib/protectedCompoenents/LoginProtectRoute";
+
+/*
+routing with createborwser router 
+high recommendation from react -router-dom
+helps us to manage easly routes
+*/
 const MainRoutes = createBrowserRouter([
   {
     path: "/",

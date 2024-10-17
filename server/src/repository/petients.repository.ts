@@ -9,10 +9,12 @@ export const buildPatients = async (payload: any) => {
 };
 
 export const getPatients = async (pageNo?: any, limit?: any, name?: any) => {
+
   const result = await PatientModel.find();
   const _pageNo = Number(pageNo);
   const _limit = Number(limit);
   const totalCount = await PatientModel.countDocuments();
+  
   if (name) {
     return await PatientModel.find({ name: { $regex: name, $options: "i" } })
       .skip((_pageNo - 1) * limit)

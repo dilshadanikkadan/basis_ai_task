@@ -1,5 +1,8 @@
 import { envString, envNumber } from "../_boot/environemnt";
-//
+
+  /*
+    booting the env file to ensure that non of them didn't miss
+  */
 export const config = {
     http: {
         host: envString('HOST', 'localhost'),

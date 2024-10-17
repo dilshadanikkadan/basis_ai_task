@@ -1,3 +1,7 @@
+
+ /*
+    error hanlding with custorm err
+  */
 export abstract class CustomError extends Error {
   abstract statusCode: number;
 

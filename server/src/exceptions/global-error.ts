@@ -1,6 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import { CustomError } from './custom-error';
 
+
+
+ /*
+   gloab error handler
+  */
 export const errorHandler = (
   err: Error,
   req: Request,

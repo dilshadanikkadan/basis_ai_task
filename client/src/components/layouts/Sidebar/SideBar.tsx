@@ -1,10 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { LogOut } from "lucide-react";
 import sidebarItems from "./SideBarItems";
 import { postRequest } from "../../../lib/buildClient/buildClient";
 import { Link, useNavigate } from "react-router-dom";
+import { TOBE } from "@/types/constant/Tobe";
 type Props = {
-  isOpenSideBar?: any;
+  isOpenSideBar?: TOBE;
 };
 
 const SideBar = ({ isOpenSideBar }: Props) => {
@@ -55,4 +56,4 @@ const SideBar = ({ isOpenSideBar }: Props) => {
   );
 };
 
-export default SideBar;
+export default memo(SideBar);

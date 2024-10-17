@@ -37,7 +37,7 @@ const LoginForm = () => {
   return (
     <div className="w-full max-w-md mx-auto p-6 bg-white  shadow-md rounded-lg">
       <h1 className="text-3xl font-bold text-center text-primary mb-8">
-        VSH Hospital
+        BASIS Hospital
       </h1>
 
       <h2 className="text-2xl font-semibold text-gray-700 mb-5">Login</h2>

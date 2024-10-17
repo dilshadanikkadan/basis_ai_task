@@ -5,6 +5,7 @@ import priorRoute from "../src/routes/prior.auth.route";
 import authRoute from "../src/routes/auth.route";
 import { errorHandler } from "./exceptions/global-error";
 import cookie  from 'cookie-parser'
+
 const app: Application = express();
 
 const corsOptions = {

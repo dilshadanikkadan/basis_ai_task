@@ -2,6 +2,7 @@ import React from "react";
 import user from "../assets/images/loginBg.png";
 import loginMain from "../assets/images/loginMain.png";
 import LoginForm from "../components/pages/LoginForm/LoginForm";
+
 type Props = {};
 
 const Login = (props: Props) => {

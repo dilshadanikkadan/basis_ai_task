@@ -5,6 +5,9 @@ type Props = {
   list: string[];
 };
 
+/*
+ a resusabel bread crumbs for user experiance
+*/
 const Breadcrumbs = ({ list }: Props) => {
   return (
     <section className="">

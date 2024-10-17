@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import user from "../../../assets/images/user.jpg";
 import logo from "../../../assets/images/logo.png";
 import menu from "../../../assets/images/menu.png";
@@ -28,4 +28,4 @@ const Navbar = ({setisOpenSideBar,isOpenSideBar}: Props) => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);
