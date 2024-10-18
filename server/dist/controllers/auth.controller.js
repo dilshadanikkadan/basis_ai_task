@@ -40,7 +40,11 @@ const authCreateController = async (req, res, next) => {
             _id: response._id,
             userName: response.userName,
         });
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            secure: false,
+            sameSite: "none",
+            httpOnly: false
+        });
         res.status(200).json(response);
     }
     catch (error) {
@@ -62,7 +66,14 @@ const authLoginController = async (req, res, next) => {
             _id: isUserExist._id,
             userName: isUserExist.userName,
         });
-        res.cookie("token", token);
+        /*
+        setting cookie options for temporaary need
+        */
+        res.cookie("token", token, {
+            secure: false,
+            sameSite: "none",
+            httpOnly: false
+        });
         res.status(200).json(isUserExist);
     }
     catch (error) {
