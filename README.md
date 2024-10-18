@@ -22,6 +22,13 @@ The **Patient Health Dashboard** is a full-stack application designed for health
 - **Authentication:** JWT 
 - **Testing:** Jest
 
+## Api Documentation
+- **Api-docs:** https://documenter.getpostman.com/view/39081298/2sAXxWYoSG
+- **Back end:** https://basisaitask-production.up.railway.app/
+- **front end:** https://basis-ai-task.vercel.app/login
+
+
+
 ## Installation
 1. Clone the repository:
    ```bash
@@ -41,5 +48,8 @@ The **Patient Health Dashboard** is a full-stack application designed for health
    npm run dev - for start
 
    Configure Base URL for Local Development  
-   When running the application locally in  client , you need to configure the base URL. Go to src/lib/buildClient/buildClient.ts and change the URL to:http://localhost:3000/
+   When running the application locally in  client , you need to configure the base URL. Go to src/lib/buildClient/buildClient.ts and change the URL to: http://localhost:3000
  
+4. login credential
+   username: admin
+   password: admin4321
