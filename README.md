@@ -32,9 +32,8 @@ The **Patient Health Dashboard** is a full-stack application designed for health
    npm test - for test
 
    Set up your environment variables. Create a .env file in the backend folder with the following variables:Set up your environment variables. Create a .env file in the backend root folder 
-   -
    MONGO_URL = mongodb+srv://efootball3312:dilshad4321@cluster0.mz4yk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-   -
+   
 
 3. cd client
    npm install
