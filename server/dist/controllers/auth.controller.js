@@ -43,7 +43,8 @@ const authCreateController = async (req, res, next) => {
         res.cookie("token", token, {
             secure: false,
             sameSite: "none",
-            httpOnly: false
+            httpOnly: true,
+            maxAge: 30 * 24 * 60 * 60 * 1000,
         });
         res.status(200).json(response);
     }
@@ -72,7 +73,8 @@ const authLoginController = async (req, res, next) => {
         res.cookie("token", token, {
             secure: false,
             sameSite: "none",
-            httpOnly: false
+            httpOnly: true,
+            maxAge: 30 * 24 * 60 * 60 * 1000,
         });
         res.status(200).json(isUserExist);
     }
