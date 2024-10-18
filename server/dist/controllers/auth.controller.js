@@ -44,6 +44,7 @@ const authCreateController = async (req, res, next) => {
             secure: false,
             sameSite: "none",
             httpOnly: true,
+            domain: "https://basis-ai-task.vercel.app",
             maxAge: 30 * 24 * 60 * 60 * 1000,
         });
         res.status(200).json(response);
@@ -74,6 +75,7 @@ const authLoginController = async (req, res, next) => {
             secure: false,
             sameSite: "none",
             httpOnly: true,
+            domain: "https://basis-ai-task.vercel.app",
             maxAge: 30 * 24 * 60 * 60 * 1000,
         });
         res.status(200).json(isUserExist);
