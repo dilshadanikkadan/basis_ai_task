@@ -1,30 +1,26 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/layouts/Navbar/Navbar";
 import SideBar from "../components/layouts/Sidebar/SideBar";
 import Breadcrumbs from "../components/navigation/Breadcrumbs";
-import InfoProvider from "../components/pages/DashBoard/InfoProvider";
 import PatientInfo from "../components/pages/PatientDetails/PatientInfo";
-type Props = {};
 
-const PatientDetails = (props: Props) => {
-  const [isOpenSideBar, setisOpenSideBar] = useState<Boolean>(true);
+const PatientDetails: React.FC = () => {
+  const [isOpenSideBar, setIsOpenSideBar] = useState<boolean>(true);
 
   return (
-    <>
+    <div className="w-screen overflow-x-hidden">
       <Navbar
         isOpenSideBar={isOpenSideBar}
-        setisOpenSideBar={setisOpenSideBar}
+        setisOpenSideBar={setIsOpenSideBar}
       />
-      <main className="section w-full mt-6 flex">
-        {isOpenSideBar && <SideBar isOpenSideBar={isOpenSideBar} />}
-        <section className="w-full ">
-          <Breadcrumbs
-            list={["Dashboard", "Admin ", "Patient "]}
-          />
+      <main className="flex mt-6">
+        <SideBar isOpenSideBar={isOpenSideBar} />
+        <section className={`transition-all duration-300 ease-in-out ${isOpenSideBar ? 'w-[60%] md:w-[77%]' : 'w-full'}`}>
+          <Breadcrumbs list={["Dashboard", "Admin", "Patient"]} />
           <PatientInfo />
         </section>
       </main>
-    </>
+    </div>
   );
 };
 

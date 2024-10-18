@@ -10,9 +10,11 @@ export const getAllPatientsController = async (
   next: NextFunction
 ) => {
   try {
+
     //after validating the req.body passing to repo layer
     const {pageNo,limit,name} = req.query;
     const response = await repository.getPatients(pageNo,limit,name);
+    
     res.status(200).json(response);
 
   } catch (error) {
@@ -26,10 +28,12 @@ export const createPatientsController = async (
   next: NextFunction
 ) => {
   try {
+
     //after validating the req.body passing to repo layer
     const response = await repository.buildPatients({
       ...req.body,
-      // mocking a reandom medical history from list
+
+      // mocking a random medical history from list
       medicalHistory: [getRandomMedicalList(medicalHistoryData)],
     });
     res.status(201).json(response);
@@ -44,9 +48,11 @@ export const getSinglePatientsController = async (
   next: NextFunction
 ) => {
   try {
+
     //after validating the req.body passing to repo layer
     const response = await repository.getSinglePatient(req.params.id);
     res.status(200).json(response);
+
   } catch (error) {
     next(error);
   }

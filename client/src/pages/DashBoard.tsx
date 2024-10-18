@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/layouts/Navbar/Navbar";
 import SideBar from "../components/layouts/Sidebar/SideBar";
 import Breadcrumbs from "../components/navigation/Breadcrumbs";
@@ -7,35 +7,16 @@ import Table from "../components/viewComponents/table/Table";
 import useRequest from "../hooks/useRequest";
 import LoaderIcon from "../components/loader/Loader";
 
-type Props = {};
-
-
-const DashBoard = (props: Props) => {
-
-  const [isOpenSideBar, setisOpenSideBar] = useState<Boolean>(true);
-  const [pageNumber, setPageNumber] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(2);
+const DashBoard = () => {
+  const [isOpenSideBar, setIsOpenSideBar] = useState(true);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [limit, setLimit] = useState(2);
   const [name, setName] = useState("");
-  const [deboundedName, setDebouncedName] = useState<string>(name);
 
-  const { data, loading, fetchData, error } = useRequest(
+  const { data, loading, fetchData } = useRequest(
     `/patients?pageNo=${pageNumber}&limit=${limit}&name=${name}`
   );
 
-  /*
-making a debounce function to optimize the limit of serching 
-*/
-
-  useEffect(() => {
-    const handlerDebouncer = setTimeout(() => {
-      setDebouncedName(name);
-    }, 500);
-    return () => {
-      clearTimeout(handlerDebouncer);
-    };
-  }, [deboundedName]);
-
-  
   useEffect(() => {
     fetchData();
   }, [pageNumber, limit, name]);
@@ -44,11 +25,11 @@ making a debounce function to optimize the limit of serching
     <div className="w-screen overflow-x-hidden">
       <Navbar
         isOpenSideBar={isOpenSideBar}
-        setisOpenSideBar={setisOpenSideBar}
+        setisOpenSideBar={setIsOpenSideBar}
       />
-      <main className="section w-full mt-6 flex  overflow-hidden">
-        {isOpenSideBar && <SideBar isOpenSideBar={isOpenSideBar} />}
-        <section className="w-full ">
+      <main className="flex mt-6">
+        <SideBar isOpenSideBar={isOpenSideBar} />
+        <section className={`transition-all duration-300 ease-in-out ${isOpenSideBar ? 'w-[60%] md:w-[77%]' : 'w-full'}`}>
           <Breadcrumbs list={["Dashboard", "Admin"]} />
           <InfoProvider setName={setName} />
           {loading ? (
@@ -59,7 +40,7 @@ making a debounce function to optimize the limit of serching
             <Table
               data={data}
               setPageNumber={setPageNumber}
-              clasName="w-full md:w-[90%] mx-4 md:mx-auto"
+              clasName="w-full md:w-[90%] px-4 md:px-0 md:mx-auto"
             />
           )}
         </section>

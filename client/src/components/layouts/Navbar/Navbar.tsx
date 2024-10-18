@@ -12,7 +12,8 @@ const Navbar = ({setisOpenSideBar,isOpenSideBar}: Props) => {
     <nav className="flex h-[70px] w-screen overflow-hidden  bg-white ">
       <div className="left flex-[1]  flex items-center justify-center  ">
         <div className="wrapper w-[90%] mx-auto flex justify-between items-center">
-          <img src={logo} alt="lpgo" className="h-9 object-cover" />
+          {/* <img src={logo} alt="lpgo" className="h-9 object-cover" /> */}
+          <h1 className="text-primary text-2xl font-bold uppercase ">basis ai</h1>
           <img onClick={()=> setisOpenSideBar(!isOpenSideBar)} src={menu} alt="menu" className="h-8 w-8" />
         </div>
       </div>
