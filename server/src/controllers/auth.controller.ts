@@ -27,6 +27,7 @@ export const authCreateController = async (
       secure:true,
       sameSite:"none",
       httpOnly:true,
+      path:"/",
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
     res.status(200).json(response);
@@ -67,6 +68,7 @@ export const authLoginController = async (
       secure:true,
       sameSite:"none",
       httpOnly:true,
+      path:"/",
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
 
