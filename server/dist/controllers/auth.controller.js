@@ -41,7 +41,7 @@ const authCreateController = async (req, res, next) => {
             userName: response.userName,
         });
         res.cookie("token", token, {
-            secure: false,
+            secure: true,
             sameSite: "none",
             httpOnly: true,
             maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -71,7 +71,7 @@ const authLoginController = async (req, res, next) => {
         setting cookie options for temporaary need
         */
         res.cookie("token", token, {
-            secure: false,
+            secure: true,
             sameSite: "none",
             httpOnly: true,
             maxAge: 30 * 24 * 60 * 60 * 1000,

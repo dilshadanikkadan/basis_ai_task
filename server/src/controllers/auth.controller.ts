@@ -24,7 +24,7 @@ export const authCreateController = async (
     });
 
     res.cookie("token", token,{
-      secure:false,
+      secure:true,
       sameSite:"none",
       httpOnly:true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -64,7 +64,7 @@ export const authLoginController = async (
     setting cookie options for temporaary need
     */
     res.cookie("token", token,{
-      secure:false,
+      secure:true,
       sameSite:"none",
       httpOnly:true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
