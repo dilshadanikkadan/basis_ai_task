@@ -12,9 +12,12 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
   const [treatmentType, setTreatmentType] = useState<string>("");
   const [insurancePlan, setInsurancePlan] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
   const [dateOfService, setDateOfService] = useState("");
   const [diagnosisCode, setDiagnosisCode] = useState("");
-
+  /*
+   making some simple validation with logic
+  */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log({ treatmentType, insurancePlan, dateOfService, diagnosisCode });
@@ -34,9 +37,14 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
       diagnosisCode,
       patientId: "6710deaa6d78f32802598e37",
     });
+    setSuccess("successfully sent");
     console.log(resposne);
-
-    onClose();
+    setTreatmentType("");
+    setInsurancePlan("");
+    setDateOfService("");
+    setDiagnosisCode("");
+    setError("");
+    // onClose();
   };
 
   if (!isOpen) return null;
@@ -56,6 +64,7 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          {success && <p className="text-green-500">{success}</p>}
           {error && <p className="text-red-500">{error}</p>}
           <div>
             <label
@@ -69,7 +78,10 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
               id="treatmentType"
               placeholder="eg: Phycical Therappy"
               value={treatmentType}
-              onChange={(e) => setTreatmentType(e.target.value)}
+              onChange={(e) => {
+                setTreatmentType(e.target.value);
+                setError("");
+              }}
               className="w-full   px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -86,7 +98,10 @@ const PriorForm: React.FC<PriorFormProps> = ({ isOpen, onClose }) => {
               placeholder="eg: gold plan"
               id="insurancePlan"
               value={insurancePlan}
-              onChange={(e) => setInsurancePlan(e.target.value)}
+              onChange={(e) => {
+                setInsurancePlan(e.target.value);
+                setError("");
+              }}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />

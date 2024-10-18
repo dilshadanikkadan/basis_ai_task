@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  // baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:3000",
   // baseURL: "https://basis-ai-task-1.onrender.com",
-  baseURL: "https://basisaitask-production.up.railway.app/",
+  // baseURL: "https://basisaitask-production.up.railway.app/",
   withCredentials: true,
 });
 

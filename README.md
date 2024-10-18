@@ -13,6 +13,7 @@ The **Patient Health Dashboard** is a full-stack application designed for health
 - maintainable code both server and client
 - clean code 
 - Reusabel components in front-end
+- server is Dcokerized
 
 ## Technologies Used
 - **Frontend:** React, Tailwind 
