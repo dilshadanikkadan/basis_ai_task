@@ -12,7 +12,7 @@ const global_error_1 = require("./exceptions/global-error");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app = (0, express_1.default)();
 const corsOptions = {
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://basis-ai-task.vercel.app"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
 };
